@@ -3,6 +3,7 @@ package com.works.restcontrollers;
 import com.works.entities.Customer;
 import com.works.services.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class CustomerRestController {
     final CustomerService service;
 
     @PostMapping("/add")
-    public Customer add(@RequestBody Customer customer) {
+    public ResponseEntity<Customer> add(Customer customer) {
         return service.add(customer);
     }
 

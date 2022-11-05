@@ -16,13 +16,18 @@ public class CustomerRestController {
     final CustomerService service;
 
     @PostMapping("/add")
-    public ResponseEntity<Customer> add(Customer customer) {
+    public ResponseEntity<Customer> add( @RequestBody Customer customer ) {
         return service.add(customer);
     }
 
     @GetMapping("/list")
     public List<Customer> list() {
         return service.list();
+    }
+
+    @DeleteMapping("/delete/{cid}")
+    public ResponseEntity<Customer> delete( @PathVariable Long cid ) {
+        return service.delete(cid);
     }
 
 }
